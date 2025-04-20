@@ -6,6 +6,7 @@ import Loading from '@/components/loading';
 import { Alert, AlertDescription, AlertTitle, } from '@/components/ui/alert';
 import {AlertTriangle, MapPin} from 'lucide-react'
 import { useWeatherQuery, useForecastQuery, useReverseGeocodeQuery } from '@/hooks/use-weather';
+import { CurrentWeather } from '@/components/current-weather';
 function WeatherDashboard() {
     const {coordinates,error:locationError, isLoading:locationLoading, getLocation} = useGeolocation();
     const handleRefresh = () => {
@@ -103,6 +104,18 @@ function WeatherDashboard() {
             </Button>
         </div>
         {/* Current and Hourly Weather  */}
+
+        <div className="grid gap-6">
+        <div className="flex flex-col lg:flex-row gap-4">
+          <CurrentWeather
+            data={weatherQuery.data}
+            locationName={locationName}
+          />
+          
+        </div>
+
+        
+      </div>
     </div>
 
   )
