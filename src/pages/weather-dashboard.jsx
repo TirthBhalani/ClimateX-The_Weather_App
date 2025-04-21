@@ -8,6 +8,7 @@ import {AlertTriangle, MapPin} from 'lucide-react'
 import { useWeatherQuery, useForecastQuery, useReverseGeocodeQuery } from '@/hooks/use-weather';
 import { CurrentWeather } from '@/components/current-weather';
 import { HourlyTemperature } from '@/components/hourly-temperature';
+import { WeatherDetails } from '@/components/weather-details';
 function WeatherDashboard() {
     const {coordinates,error:locationError, isLoading:locationLoading, getLocation} = useGeolocation();
     const handleRefresh = () => {
@@ -95,12 +96,12 @@ function WeatherDashboard() {
                 variant="outline"
                 size="icon"
                 onClick={handleRefresh}
-                // disabled={weatherQuery.isFetching || forecastQuery.isFetching}
+                disabled={weatherQuery.isFetching || forecastQuery.isFetching}
                 >
                 <RefreshCw
-                    // className={`h-4 w-4 ${
-                    // weatherQuery.isFetching ? "animate-spin" : ""
-                    // }`}
+                    className={`h-4 w-4 ${
+                    weatherQuery.isFetching ? "animate-spin" : ""
+                    }`}
                 />
             </Button>
         </div>
@@ -113,6 +114,11 @@ function WeatherDashboard() {
             locationName={locationName}
           />
           <HourlyTemperature data={forecastQuery.data} />
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 items-start">
+            <WeatherDetails data={weatherQuery.data} />
+            {/* {forecast} */}
         </div>
 
         
