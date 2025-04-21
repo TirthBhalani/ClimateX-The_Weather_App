@@ -7,6 +7,7 @@ import { Alert, AlertDescription, AlertTitle, } from '@/components/ui/alert';
 import {AlertTriangle, MapPin} from 'lucide-react'
 import { useWeatherQuery, useForecastQuery, useReverseGeocodeQuery } from '@/hooks/use-weather';
 import { CurrentWeather } from '@/components/current-weather';
+import { HourlyTemperature } from '@/components/hourly-temperature';
 function WeatherDashboard() {
     const {coordinates,error:locationError, isLoading:locationLoading, getLocation} = useGeolocation();
     const handleRefresh = () => {
@@ -111,7 +112,7 @@ function WeatherDashboard() {
             data={weatherQuery.data}
             locationName={locationName}
           />
-          
+          <HourlyTemperature data={forecastQuery.data} />
         </div>
 
         
