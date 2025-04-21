@@ -2,6 +2,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { ThemeToggle } from './theme-toggle';
+import {CitySearch} from './city-search';
 function Navbar() {
     // const {theme} = useTheme();
   
@@ -18,7 +19,7 @@ function Navbar() {
             </Link>
     
             <div className="flex gap-4">
-              {/* <CitySearch /> */}
+              <CitySearch />
               <ThemeToggle />
             </div>
           </div>

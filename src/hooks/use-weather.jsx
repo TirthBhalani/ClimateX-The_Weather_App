@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 // import { weatherAPI } from "@/api/weather";
-import { getCurrentWeather,getForecast,reverseGeocode    } from "@/api/weather";
+import { getCurrentWeather,getForecast,reverseGeocode,searchLocations    } from "@/api/weather";
 const WEATHER_KEYS = {
   weather: (coords) => ["weather", coords],
   forecast: (coords) => ["forecast", coords],
