@@ -12,6 +12,7 @@ import { QueryClient,QueryClientProvider } from '@tanstack/react-query'
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 import { Toaster } from 'sonner'
 import { FavoriteCities } from './components/favorite-cities'
+import AirPollutionPage from './pages/air-pollution'
 function App() {
   
   const queryClient = new QueryClient({
@@ -33,6 +34,7 @@ function App() {
             <Routes>
               <Route path="/" element={<WeatherDashboard />} />
               <Route path="/city/:cityName" element={<CityPage />} />
+              <Route path="/air-pollution" element={<AirPollutionPage />} />
             </Routes>
           </Layout>
           <Toaster richColors />

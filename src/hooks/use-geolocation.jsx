@@ -7,7 +7,7 @@ export function useGeolocation() {
     isLoading: true,
   });
 
-   const getLocation = () => {
+  const getLocation = () => {
     setLocationData((prev) => ({ ...prev, isLoading: true, error: null }));
 
     if (!navigator.geolocation) {
@@ -19,36 +19,47 @@ export function useGeolocation() {
       return;
     }
 
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setLocationData({
-          coordinates: {
-            lat: position.coords.latitude,
-            lon: position.coords.longitude,
+    
+    navigator.permissions.query({ name: 'geolocation' }).then((result) => {
+      if (result.state === 'granted' || result.state === 'prompt') {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            setLocationData({
+              coordinates: {
+                lat: position.coords.latitude,
+                lon: position.coords.longitude,
+              },
+              error: null,
+              isLoading: false,
+            });
           },
-          error: null,
-          isLoading: false,
-        });
-      },
-      (error) => {
-        const errorMessages = {
-          1: "Location permission denied. Please enable location access.",
-          2: "Location information is unavailable.",
-          3: "Location request timed out.",
-        };
+          (error) => {
+            const errorMessages = {
+              1: "Location permission denied. Please enable location access.",
+              2: "Location information is unavailable.",
+              3: "Location request timed out.",
+            };
 
+            setLocationData({
+              coordinates: null,
+              error: errorMessages[error.code] || "An unknown error occurred.",
+              isLoading: false,
+            });
+          },
+          {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0,
+          }
+        );
+      } else if (result.state === 'denied') {
         setLocationData({
           coordinates: null,
-          error: errorMessages[error.code] || "An unknown error occurred.",
+          error: "Location access is blocked. Please enable location access in your browser settings.",
           isLoading: false,
         });
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0,
       }
-    );
+    });
   };
 
   useEffect(() => {
@@ -56,4 +67,4 @@ export function useGeolocation() {
   }, []);
 
   return { ...locationData, getLocation };
-}       
+}
