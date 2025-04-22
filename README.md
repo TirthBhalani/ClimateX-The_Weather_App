@@ -73,3 +73,6 @@ npm run dev
 ```
 
 ⚠️ Ensure you grant location permissions when prompted by the browser. ClimateX uses your device's location to fetch real-time weather and air quality updates, and without permission, it may not display local data correctly. If permissions have been permanently blocked, you'll need to adjust your browser settings manually.
+
+Check out the live version of *ClimateX* here: _
+[ClimateX on Vercel](https://climatex.vercel.app/)
