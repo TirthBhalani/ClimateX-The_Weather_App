@@ -40,10 +40,10 @@ function WeatherDashboard() {
             <AlertTitle>Location Error</AlertTitle>
             <AlertDescription className="flex flex-col gap-4">
               <p>{locationError}</p>
-              <Button variant="outline" onClick={getLocation} className="w-fit">
+              {/* <Button variant="outline" onClick={getLocation} className="w-fit">
                 <MapPin className="mr-2 h-4 w-4" />
                 Enable Location
-              </Button>
+              </Button> */}
             </AlertDescription>
           </Alert>
         );
@@ -56,10 +56,10 @@ function WeatherDashboard() {
         <AlertTitle>Location Required</AlertTitle>
         <AlertDescription className="flex flex-col gap-4">
             <p>Please enable location access to see your local weather.</p>
-            <Button variant="outline" onClick={getLocation} className="w-fit">
+            {/* <Button variant="outline" onClick={getLocation} className="w-fit">
             <MapPin className="mr-2 h-4 w-4" />
             Enable Location
-            </Button>
+            </Button> */}
         </AlertDescription>
         </Alert>
     );
