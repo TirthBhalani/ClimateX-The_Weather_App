@@ -34,7 +34,7 @@ This project is built for **ease of use** and **efficiency**, leveraging **custo
 🔹 **ShadCN UI** – Modern **UI components** for sleek design.  
 🔹 **OpenWeather API** – Fetches **weather, forecast, and air pollution data**.  
 🔹 **Geolocation API** – Retrieves **real-time location** using the browser.  
-🔹 **Air pollution API** – Fetches **current, forecast and historical air pollution data**. 
+🔹 **Air pollution API** – Fetches **current, forecast and historical air pollution data**.  
 🔹 **Recharts** – Displays **hourly temperature trends** and **air quality metrics** in **graph format**.  
 
 ---
