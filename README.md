@@ -34,6 +34,7 @@ This project is built for **ease of use** and **efficiency**, leveraging **custo
 🔹 **ShadCN UI** – Modern **UI components** for sleek design.  
 🔹 **OpenWeather API** – Fetches **weather, forecast, and air pollution data**.  
 🔹 **Geolocation API** – Retrieves **real-time location** using the browser.  
+🔹 **Air pollution API** – Fetches **current, forecast and historical air pollution data**. 
 🔹 **Recharts** – Displays **hourly temperature trends** and **air quality metrics** in **graph format**.  
 
 ---
@@ -71,4 +72,4 @@ VITE_OPEN_WEATHER_API_KEY = Your_API_Key
 npm run dev
 ```
 
-⚠️ Ensure you grant location permissions when prompted by the browser. ClimateX uses your device's location to fetch real-time weather and air quality updates, and without permission, it may not display local data correctly. If location access is blocked, the app will provide buttons to trigger permission prompts. If permissions have been permanently blocked, you'll need to adjust your browser settings manually.
+⚠️ Ensure you grant location permissions when prompted by the browser. ClimateX uses your device's location to fetch real-time weather and air quality updates, and without permission, it may not display local data correctly. If permissions have been permanently blocked, you'll need to adjust your browser settings manually.
